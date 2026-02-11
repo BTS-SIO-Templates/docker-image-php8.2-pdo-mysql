@@ -8,10 +8,12 @@ RUN apt-get update && apt-get install -y \
     unzip \
     mariadb-client \
     default-libmysqlclient-dev \
+    build-essential \
     && rm -rf /var/lib/apt/lists/*
 
 # Extensions PHP nécessaires
-RUN docker-php-ext-install \
+RUN docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
+    && docker-php-ext-install \
     pdo \
     pdo_mysql
 
