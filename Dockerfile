@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     git \
     unzip \
     mariadb-client \
+    default-libmysqlclient-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Extensions PHP nécessaires
